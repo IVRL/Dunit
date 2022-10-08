@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="DUNIT: Detection-based Unsupervised Image-to-Image Translation">
+    <meta name="author" content="Deblina Bhattacharjee, Seungryong Kim, Guillaume Vizier, Mathieu Salzmann">
+
+    <title>DUNIT: Detection-based Unsupervised Image-to-Image Translation</title>
+    <!-- Bootstrap core CSS -->
+    <!--link href="bootstrap.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+    <!--    <link rel="icon" href="img/favicon.gif" type="image/gif">-->
+</head>
+
+<body>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container"></div>
+    <h1>DUNIT: Detection-based Unsupervised Image-to-Image Translation</h1>
+    <h3>CVPR 2020</h3>
+           <p class="abstract"></p>
+    <hr>
+    <p class="authors">
+        <a href="https://www.linkedin.com/in/deblina/"> Deblina Bhattacharjee</a>,
+        <a href="https://cvlab.korea.ac.kr/"> Seungryong Kim</a>,
+        <a href="https://www.researchgate.net/scientific-contributions/Guillaume-Vizier-2146701756"> Guillaume Vizier</a>,
+        <a href="https://people.epfl.ch/mathieu.salzmann"> Mathieu Salzmann</a>,
+    </p>
+    <div class="btn-group" role="group" aria-label="Top menu">
+        <a class="btn btn-primary" href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Bhattacharjee_DUNIT_Detection-Based_Unsupervised_Image-to-Image_Translation_CVPR_2020_paper.pdf">Paper</a>
+        <a class="btn btn-primary" href="https://github.com/IVRL/Dunit">Code</a>
+         <a class="btn btn-primary" href="https://drive.google.com/file/d/1HXFLGZgfu3EvWHLEC-6f7AV1M291dj5z/view?usp=sharing">Poster</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="vcontainer">
+            <iframe width="960" height="515" src="https://www.youtube.com/embed/D1dASlGo_Y0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <hr>
+        <p>
+            Image-to-image translation has made great strides in recent years, with current techniques being able to handle unpaired training images and to account for the multimodality of the translation problem. Despite this, most methods treat the image as a whole, which makes the results they produce for content-rich scenes less realistic. In this paper, we introduce a Detection-based Unsupervised Image-to-image Translation (DUNIT) approach that explicitly accounts for the object instances in the translation process. To this end, we extract separate representations for the global image and for the instances, which we then fuse into a common representation from which we generate the translated image. This allows us to preserve the detailed content of object instances, while still modeling the fact that we aim to produce an image of a single consistent scene. We introduce an instance consistency loss to maintain the coherence between the detections. Furthermore, by incorporating a detector into our architecture, we can still exploit object instances at test time. As evidenced by our experiments, this allows us to outperform the state-of-the-art unsupervised image-to-image translation methods. Furthermore, our approach can also be used as an unsupervised domain adaptation strategy for object detection, and it also achieves state-of-the-art performance on this task.
+        </div>
+
+        <div class="section">
+            <h2>Pipeline</h2>
+            <hr>
+                        <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="DUNIT_detailed.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div> 
+            <hr>
+            <p>
+                Overall DUNIT architecture. The instance aware I2I translation block on the right is the exact replica of the operations taking place between the night image in domain X and the corresponding translated day image. Similarly, the global I2I translation block mirrors the operations between the day image in domain Y and its translated night image.The blue background separates our contribution from the DRIT backbone on which our work is built. The pink lines correspond to domain X and the black lines to domain Y . The global-level residual blocks have different features in domain X and domain Y and hence are color coded differently. The global features in domain X are shown in dark blue, those in domain Y in dark grey, the losses are in green, the global operations are in light orange, the instance features in domain X are in yellow, the detection subnetwork in light blue and the merged features in dark orange.  </p>
+            </p>
+        </div>
+        </div>
+
+        <div class="section">
+            <h2>Results</h2>
+            <hr>
+            
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="results1.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+            <hr>
+            <p>
+             Qualitative comparisons conditioned on one image style for Sunny to Cloudy (first row) and Sunny to Rainy (second row). We show, from left to right, the input image in the source domain, the style image for translation, followed by outputs from MUNIT, DRIT and DUNIT (ours), respectively.
+            </p>
+            </div>
+            </div>
+            <hr>
+            
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="results2.png" style="width:100%; margin-right:-10px; margin-top:-10px;">
+            </div>
+            <hr>
+            <p>
+             Qualitative comparisons conditioned on different image styles on the DCM benchmark. We show, from left to right, the input image in the source domain, the style image for translation, using DUNIT (ours), respectively.
+            </p>
+            </div>
+            </div>
+        <div class="section">
+            <h2>Unsupervised Domain Adaptive Detection</h2>
+            <hr>
+            
+                <div class="row align-items-center">
+                <div class="col justify-content-center text-center">
+                    <img src="domain-adapt.png" style="width:70%; margin-right:-10px; margin-top:-10px;">
+            <p>
+             Qualitative domain adaptation results. We translate Pascal VOC images to the DCM comics domain using DUNIT and apply a detector trained on the original DCM data to the translated images. (Left) Input image, (remaining columns) translated image and detections.
+            </p>
+            <hr>
+            </div>
+            </div>
+            </div>
+        <div class="section">
+        <h2>Bibtex</h2>
+        <hr>
+        <div class="row align-items-center"></div>
+        <div class="col justify-content-center text-center">
+        <div class="bibtexsection">
+                @InProceedings{Bhattacharjee_2020_CVPR,
+                author = {Bhattacharjee, Deblina and Kim, Seungryong and Vizier, Guillaume 
+                and Salzmann, Mathieu},
+                title = {DUNIT: Detection-Based Unsupervised Image-to-Image Translation},
+                booktitle = {Proceedings of the IEEE/CVF Conference on 
+                Computer Vision and Pattern Recognition (CVPR)},
+                month = {June},
+                year = {2020},
+                }
+
+        </div>
+    </div>
+    </div>
+
+    <hr>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
