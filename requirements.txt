@@ -1,0 +1,13 @@
+# local package
+matplotlib>=3.1.1
+numpy>=1.17.3
+opencv-python>=4.1.1.26
+Pillow>=6.2.0
+torch>=1.3.0
+torch-vision>=0.1.6.dev0
+torchvision>=0.4.1
+
+# external requirements
+python-dotenv>=0.10.3
+
+pylint>=2.4.2
