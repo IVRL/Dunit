@@ -1,4 +1,7 @@
-# (CVPR 2020) DUNIT: Detection-Based Unsupervised Image-to-Image Translation
+# (CVPR 2020) DUNIT: Detection-Based Unsupervised Image-to-Image Translation 
+
+[![DOI](https://zenodo.org/badge/263378602.svg)](https://zenodo.org/doi/10.5281/zenodo.11068823)
+
 Deblina Bhattacharjee, Seungryong Kim, Guillaume Vizier, Mathieu Salzmann
 
 ![Figure Abstract](CVPR_teaser_image.gif)
